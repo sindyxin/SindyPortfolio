@@ -1,0 +1,18 @@
+
+<h1>Show Detail</h1>
+
+<%= image_tag @portfolio_item.main_image %>
+<h2>
+  <%= @portfolio_item.title %>
+</h2>
+<em>
+ 
+  <%= @portfolio_item.subtitle %>
+</em>
+
+<p>
+  <%= @portfolio_item.body %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id) %> |
+<%= link_to 'Back', portfolios_path %>
