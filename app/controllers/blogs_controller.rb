@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -61,6 +61,15 @@ class BlogsController < ApplicationController
     end
   end
 
+  def toggle_status
+    if @blog.draft?
+      @blog.published! 
+    elsif @blog.published?
+      @blog.draft! 
+    end
+    redirect_to blogs_url, notice: "Post status has been changed."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
@@ -69,6 +78,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :status)
     end
 end
