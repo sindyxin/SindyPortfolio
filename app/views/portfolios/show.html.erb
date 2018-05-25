@@ -13,6 +13,10 @@
 <p>
   <%= @portfolio_item.body %>
 </p>
+<h2>Technologies include:</h2>
+<% @portfolio_item.technologies.each do |technology_item| %>
+ <p><%= technology_item.name %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id) %> |
 <%= link_to 'Back', portfolios_path %>
