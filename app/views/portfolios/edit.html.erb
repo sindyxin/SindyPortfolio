@@ -1,20 +1,2 @@
-<%= form_for(@portfolio_item) do |item|%>
-  <div class="field">
-    <%= item.label :title %>
-    <%= item.text_field :title%>
-  </div>
 
-  <div class="field">
-    <%= item.label :subtitle%>
-    <%= item.text_field :subtitle%>
-  </div>
-
-  <div class="field">
-    <%= item.label :body%>
-    <%= item.text_area :body%>
-  </div>
-  <div class="action">
-    <%= item.submit%>
-  </div>
-
-<% end %>
+<%= render 'form', item: @item %>
