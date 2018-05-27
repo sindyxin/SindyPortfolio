@@ -10,7 +10,14 @@ module ApplicationHelper
   end
   
   def sample_helper
-    #must add .html_safe
-    "<p>My helper</p>".html_safe
+    content_tag(:div, "Hi, I'm in a paragraph tag ", class: "my-special-class")
   end
+
+  def source_helper(layout_name)
+    if session[:source] 
+      greeting = "Thanks for visit us from #{session[:source]} and you are in #{layout_name} layout"
+      content_tag(:p, greeting , class: "source-greeting")
+    end
+  end
+
 end
