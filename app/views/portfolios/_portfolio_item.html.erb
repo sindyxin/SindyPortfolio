@@ -1,0 +1,8 @@
+
+<h3><%= link_to portfolio_item.title, show_portfolio_path(portfolio_item.id) %></h3>
+<h4><%= portfolio_item.subtitle %></h4>
+<p><%= portfolio_item.body %></p>
+<%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %>
+<%= link_to "Edit portfolio", edit_portfolio_path(portfolio_item.id) %>
+<%# method: :delete  is important because there has other method use the same path%>
+<%= link_to 'Destroy', portfolio_path(portfolio_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
