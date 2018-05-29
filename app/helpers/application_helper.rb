@@ -20,4 +20,23 @@ module ApplicationHelper
     end
   end
 
+  def copyright_generator
+    @copyright = DevcampViewTool::Renderer.copyright'Xin Li', 'All rights reserved'
+  end
+  #how to build gem use below as example, below code if not build gem , must use code as below
+
+  # def set_copyright 
+
+  #   @copyright = DevcampViewTool::Renderer.copyright'Xin Li', 'All rights reserved'
+  # end
+
+  # module DevcampViewTool
+  #   class Renderer
+  #     def self.copyright name, msg
+  #       "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe  #must double quotes
+  #     end
+  #   end
+  # end
+
+
 end
