@@ -59,4 +59,4 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
-gem 'xin_copyright', git: 'https://github.com/sindyxin/xin_copyright'
+gem 'xin_copyright', '~> 0.1.0'
