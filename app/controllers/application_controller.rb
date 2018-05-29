@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
   include CurrentUserConcern
   include DefaultPageContent
 
-  before_action :set_copyright
-
  
 
 end

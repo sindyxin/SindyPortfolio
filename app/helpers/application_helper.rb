@@ -21,7 +21,7 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    @copyright = DevcampViewTool::Renderer.copyright'Xin Li', 'All rights reserved'
+    @copyright = XinCopyright::Renderer.copyright'Xin Li', 'All rights reserved'
   end
   #how to build gem use below as example, below code if not build gem , must use code as below
 
