@@ -60,3 +60,4 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 gem 'xin_copyright', '~> 0.1.0'
+gem 'petergate', '~> 1.8', '>= 1.8.1'
