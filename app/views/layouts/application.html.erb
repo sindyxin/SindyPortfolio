@@ -16,11 +16,9 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
-
-          <%= render "shared/application_nav", location: 'top' %>         
-          <%= login_helper %>
+          <%= render "shared/application_nav" %>         
           <%= yield %>
-          <%= copyright_generator %>
+          <%= render "shared/application_footer" %>
         </div>
 
       </div>
