@@ -174,15 +174,21 @@ body {
 .card-block {
    color: black;
    text-align: left;
-   margin-left: 60px;
+   padding: 40px;
+  //  margin-left: 60px;
 }
 .btn{
   margin-right: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .auth-link a{
   color: black;
 }
 .login-style{
   text-align: right;
+}
+.login > .card {
+  width: 30rem;
+  margin: 0 auto;
+  float: none;
 }
