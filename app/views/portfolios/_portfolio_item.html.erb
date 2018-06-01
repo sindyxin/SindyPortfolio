@@ -1,8 +1,14 @@
+<div class="card">
+  <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %>
+  <div class="card-block">
+    <h4 class="card-title">
+      <%= link_to portfolio_item.title, show_portfolio_path(portfolio_item.id) %> 
+    </h4>
+    <h5 class="card-subtitle"><%= portfolio_item.subtitle %></h5>
 
-<h3><%= link_to portfolio_item.title, show_portfolio_path(portfolio_item.id) %></h3>
-<h4><%= portfolio_item.subtitle %></h4>
-<p><%= portfolio_item.body %></p>
-<%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %>
-<%= link_to "Edit portfolio", edit_portfolio_path(portfolio_item.id) if logged_in?(:site_admin) %>
-<%# method: :delete  is important because there has other method use the same path%>
-<%= link_to 'Destroy', portfolio_path(portfolio_item.id), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
+    <p class="card-text"><%= portfolio_item.body %></p>
+  </div>
+  <%= link_to "Edit portfolio", edit_portfolio_path(portfolio_item.id) if logged_in?(:site_admin) %>
+  <%# method: :delete  is important because there has other method use the same path%>
+  <%= link_to 'Destroy', portfolio_path(portfolio_item.id), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
+</div>
