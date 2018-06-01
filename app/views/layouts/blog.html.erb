@@ -17,32 +17,18 @@
    <!-- Blog Nav -->
     <%= render "shared/blog_nav" %>
     <!-- Blog Header -->
-    <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
-        <%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
-      </div>
-    </div>
+    <%= render "shared/blog_header" %>
 
     <!-- Blog Container and row element -->
     <div class="container">
       <div class="row">
         <%= yield %>
+        <!-- Blog Sidebar -->
         <%= render "shared/blog_sidebar" %>
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  
-    <!-- Blog Sidebar -->
-    
-
+      </div>
+    </div>
     <!-- Blog Footer -->
-    <footer class="blog-footer">
-      <%= render "shared/application_footer" %>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+    <%= render "shared/blog_footer" %>
 
     <%= source_helper("blog") %>
   </body>
