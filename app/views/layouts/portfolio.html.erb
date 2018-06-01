@@ -18,7 +18,8 @@
     <%= render "shared/portfolio_nav" %>
 
   <!-- Portfolio Header -->
-    <%= render "shared/portfolio_header" %>
+    <%= render "shared/portfolio_header" unless logged_in?(:site_admin) %>
+      
     <%= yield %>
   <!-- Portfolio Footer -->  
     <%= render "shared/portfolio_footer" %>  
