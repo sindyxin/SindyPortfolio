@@ -9,6 +9,9 @@ class Portfolio < ApplicationRecord
     where(subtitle: 'Angular')
   end
 
+  def self.by_position
+    order("position ASC")
+  end
   scope :My_great_project_subtitle, -> { where(subtitle: 'My great project') }
 
   after_initialize :set_default
