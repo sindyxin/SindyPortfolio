@@ -4,7 +4,15 @@ class PortfoliosController < ApplicationController
   access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
-    @portfolio_items = Portfolio.all
+    # @portfolio_items = Portfolio.all
+    # @portfolio_items = Portfolio.order("position ASC")
+    @portfolio_items = Portfolio.by_position
+  end
+  def sort 
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+    render nothing: true
   end
   def angular
     @angular_portfolio_items = Portfolio.angular
@@ -62,11 +70,6 @@ class PortfoliosController < ApplicationController
     end
   end
 end
-
-
-  
-
-
 
 private
 
