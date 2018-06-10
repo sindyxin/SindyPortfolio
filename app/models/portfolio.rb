@@ -4,6 +4,10 @@ class Portfolio < ApplicationRecord
 
   include Placeholder
   validates :title, :body, :main_image, :thumb_image, presence: true
+
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
+
     #custom scope
   def self.angular
     where(subtitle: 'Angular')

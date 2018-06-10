@@ -1,24 +1,50 @@
-# DevcampPortfolio
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Devcamp Portfolio Application
 
-Things you may want to cover:
+> This is a Ruby on Rails 5 application that allows users to create their own portfolios.
 
-* Ruby version
+### Features
 
-* System dependencies
+- Real time chat engine for comments
+- Blog
+- Portfolio
+- Drag and drop interface
 
-* Configuration
+### Code Example
 
-* Database creation
+```ruby
+def sort 
+  params[:order].each do |key, value|
+    Portfolio.find(value[:id]).update(position: value[:position])
+  end
+  render nothing: true
+end
+```
 
-* Database initialization
+```javascript
+set_positions = ->
+  $('.card').each (i) ->
+    $(this).attr 'data-pos', i + 1
+    return
+  return
 
-* How to run the test suite
+readys = ->
+  set_positions()
+  $('.sortable').sortable()
+  $('.sortable').sortable().bind 'sortupdate', (e, ui) ->
+    updated_order = []
+    set_positions()
+    $('.card').each (i) ->
+      updated_order.push
+        id: $(this).data('id')
+        position: i + 1
+      return
+    $.ajax
+      type: 'PUT'
+      url: '/portfolios/sort'
+      data: order: updated_order
+    return
+  return
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$(document).ready readys
+```
 
