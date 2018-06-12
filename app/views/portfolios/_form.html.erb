@@ -14,12 +14,12 @@
     <%= item.text_area :body, class: "form-control", rows:"8" %>
   </div>
   <div class="form-group">
-    <%= item.label :main_image, class: "form-label" %>
-    <%= item.file_field :main_image %>
+    <%= item.label "Upload Main Image", class: "btn btn-primary" %>
+    <%= item.file_field :main_image, style: "display: none" %>
   </div>
   <div class="form-group">
-    <%= item.label :thumb_image, class: "form-label" %>
-    <%= item.file_field :thumb_image %>
+    <%= item.label "Upload Thumb Image", class: "btn btn-secondary" %>
+    <%= item.file_field :thumb_image, style: "display:none" %>
   </div>
   <h3>Technologies Used: </h3>
   <div>
