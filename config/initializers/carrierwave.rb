@@ -16,7 +16,6 @@ CarrierWave.configure do |config|
     access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
     secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
     region:            ENV.fetch('AWS_REGION'), # Required
-    endpoint:          ENV.fetch('AWS_ENDPOINT')#AWS_ENDPOINT=us-east-2.amazonaws.com in the .env file
   }
 
   # Optional: Signing of download urls, e.g. for serving private content through
