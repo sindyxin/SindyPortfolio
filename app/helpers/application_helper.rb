@@ -10,9 +10,9 @@ module ApplicationHelper
     end
   end
   
-  def sample_helper
-    content_tag(:div, "Hi, I'm in a paragraph tag ", class: "my-special-class")
-  end
+  # def sample_helper
+  #   content_tag(:div, "Hi, I'm in a paragraph tag ", class: "my-special-class")
+  # end
 
   def source_helper(layout_name)
     if session[:source] 
