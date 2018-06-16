@@ -2,17 +2,10 @@
 <div class="container portfolio-container">
   <div class="row">
     <div class="col-md-7">
-      <%= image_tag portfolio_img(@portfolio_item.main_image, 'main'), width:"100%" %>
-      <h5>
-
-      <% if logged_in?(:site_admin) %>
-       | <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id) %>
-      <% end %>
-      </h5>
-
+      <%= image_tag portfolio_img(@portfolio_item.main_image.to_s, 'main'), width:"100%", class:"main-image" %>
     </div>
     <div class="col-md-5">
-      <h2>
+      <h2>   
         <%= @portfolio_item.title %>
       </h2>
       <em>      
@@ -22,12 +15,17 @@
         <%= @portfolio_item.body %>
       </p>
       <h2>Technologies include:</h2>
-      <div class="row">
+  
       <% @portfolio_item.technologies.each do |technology_item| %>      
-        <p>*<%= technology_item.name %>   </p>      
+        <h6>*<%= technology_item.name %>   </h6>      
       <% end %>
+    <% if logged_in?(:site_admin) %>
+      <div class="col-md-12">
+        <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id), class: "btn btn-warning btn-block" %>
       </div>
+    <% end %>
     </div>
+
   </div>
 </div>
 
