@@ -1,4 +1,11 @@
 <%= form_for(@portfolio_item) do |item|%>
+  <% if @portfolio_item.errors.any? %>
+    <h3><%= pluralize(@portfolio_item.errors.count, "errors") %> prohibited this portfolio from being saved:</h3>
+    <% @portfolio_item.errors.full_messages.each do |error| %>
+
+      <%= js add_gritter("Try again", title: error, sticky: false) %>
+    <% end %>
+  <% end %>
   <div class="form-group">
     <%= item.label :title, class: "form-label" %>
     <%= item.text_field :title, class: "form-control" %>

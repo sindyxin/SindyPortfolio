@@ -5,7 +5,7 @@ class Portfolio < ApplicationRecord
                                 reject_if: lambda { |banana| banana['name'].blank? }
 
   # include Placeholder
-  validates :title, :body, presence: true
+  validates :title, :subtitle, :body, presence: true
 
   mount_uploader :thumb_image, PortfolioUploader
   mount_uploader :main_image, PortfolioUploader
@@ -26,8 +26,8 @@ class Portfolio < ApplicationRecord
   #   self.main_image ||= Placeholder.image_generator(height: "600", width:"400")
   #   self.thumb_image ||= Placeholder.image_generator(height: "350", width:"200")
 
-    #self.main_image ||= "http://via.placeholder.com/600x400"
-    #self.thumb_image ||= "http://via.placeholder.com/350x200"
+  #   #self.main_image ||= "http://via.placeholder.com/600x400"
+  #   #self.thumb_image ||= "http://via.placeholder.com/350x200"
   # end
   # :main_image, :thumb_image,
 end
