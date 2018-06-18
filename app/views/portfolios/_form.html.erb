@@ -2,8 +2,7 @@
   <% if @portfolio_item.errors.any? %>
     <h3><%= pluralize(@portfolio_item.errors.count, "errors") %> prohibited this portfolio from being saved:</h3>
     <% @portfolio_item.errors.full_messages.each do |error| %>
-
-      <%= js add_gritter("Try again", title: error, sticky: false) %>
+      <%= alert_generator error %>
     <% end %>
   <% end %>
   <div class="form-group">

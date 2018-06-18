@@ -3,8 +3,7 @@
   <% if blog.errors.any? %>
     <h3><%= pluralize(blog.errors.count, "errors") %> prohibited this blog from being saved:</h3>
     <% blog.errors.full_messages.each do |error| %>
-
-      <%= js add_gritter("Try again", title: error, sticky: false) %>
+      <%= alert_generator error %>
     <% end %>
   <% end %>
   <div class="form-group">
