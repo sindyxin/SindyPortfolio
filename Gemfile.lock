@@ -180,6 +180,7 @@ GEM
     petergate (1.8.1)
       activerecord (> 4.0.0)
     pg (1.0.0)
+    point_out_url (0.1.0)
     popper_js (1.12.9)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -308,6 +309,7 @@ DEPENDENCIES
   mini_magick (~> 4.8)
   petergate (~> 1.8, >= 1.8.1)
   pg (>= 0.18, < 2.0)
+  point_out_url (~> 0.1.0)
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.0)
