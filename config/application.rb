@@ -11,7 +11,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
-require "dotenv-rails"
+# require "dotenv-rails"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -20,6 +20,8 @@ Bundler.require(*Rails.groups)
 
 module DevcampPortfolio
   class Application < Rails::Application
+    # config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths << "#{Rails.root}/lib"
     # config.action_controller.
     #   permit_all_parameters = true
   end
