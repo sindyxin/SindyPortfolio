@@ -3,12 +3,30 @@
   <h2>
     <%= @blog.title %>
   </h2>
-
   <p>
     <strong>Body:</strong>
     <%= @blog.body %>
   </p>
-
   <%= link_to 'Edit', edit_blog_path(@blog) %> |
   <%= link_to 'Back', blogs_path %>
+
+  <!-- Start of comment form -->
+  <% unless current_user.is_a? GuestUser%>
+    <%= form_for @comment, url: '#' do |f| %>
+      <div class="form-group">
+        <h5><%= f.label "Comment" %></h5>
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+      <div class="form-group">
+
+        <%= f.submit "Post Comment", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+  <!-- end form -->
+  <!-- Start of comments -->
+  <%= render @blog.comments%>
+  <!-- end form -->
+
+
 </div>
