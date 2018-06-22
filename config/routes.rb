@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
+  mount ActionCable.server => '/cable' #going to open upa web socket connection that we can use in order to connect in and send data receive data
   root to: 'pages#home'
 end
