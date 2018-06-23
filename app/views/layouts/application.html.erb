@@ -4,12 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= @page_title %></title>
-    <meta name="keywords" content="<%= @seo_keywords %>" />
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %> 
+    <meta name="keywords" content="<%= @seo_keywords %>" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
   </head>
   <body>
     <div class="site-wrapper">
@@ -30,6 +28,7 @@
         
           <%= yield %>
           <%= render "shared/application_footer" %>
+          <%= source_helper("application") %>
         </div>
 
       </div>
