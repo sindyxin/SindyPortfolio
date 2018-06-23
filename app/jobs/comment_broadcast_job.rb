@@ -1,4 +1,4 @@
-class CommentBroadcastJob < ApplicationJob::Base
+class CommentBroadcastJob < ApplicationJob
   #a queue here when it comes to web socket is essentially saying that we want to have a list
   queue_as :default
   def perform(comment)

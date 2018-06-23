@@ -6,7 +6,6 @@ class Comment < ApplicationRecord
   #with web socket connection is different with default 
 
   #perform_later means to perform this when ever you have a chance but it doesn't have to be right at this very second
-  after_create_comment { CommentBroadcastJob.perform_later(self) }
+  after_create_commit { CommentBroadcastJob.perform_later(self) }
 
-  }
 end
