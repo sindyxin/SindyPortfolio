@@ -17,7 +17,7 @@
     <%= f.label "Topic"%>
     <%= f.collection_select(:topic_id, Topic.all, :id, :title,
                               {
-                                selected: blog.topic.id,
+                                selected: blog.topic_id,
                                 include_blank: true
 
                               },
