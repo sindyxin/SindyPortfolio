@@ -5,7 +5,7 @@
   </h2>
   <p>
     <strong>Body:</strong>
-    <%= @blog.body %>
+    <%= markdown @blog.body %>
   </p>
   <% if logged_in?(:site_admin) %>
     <%= link_to 'Edit', edit_blog_path(@blog) %> |
