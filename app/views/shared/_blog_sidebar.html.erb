@@ -7,7 +7,7 @@
     <h4>Topics</h4>
     <ol class="list-unstyled social-link">
       <% @sidebar_topics.each do |topic| %>
-        <li><%= link_to "#{topic.title}", topics_path %></li>
+        <li><%= link_to "#{topic.title}", topic_path(topic) %></li>
       <% end %>
     </ol>
   </div>
