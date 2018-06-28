@@ -1,7 +1,7 @@
 
 <div class="col-sm-8 blog-main">
  
-  <h1><%= @topic.title %></h1>
+  <h4 class="mb-5" id="topic-list"><%= @topic.title %> blogs list:</h4>
    <%= paginate @blogs %>
    <%= render @blogs %>
    <%= paginate @blogs %>
