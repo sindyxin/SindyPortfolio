@@ -1,13 +1,21 @@
 
-
-
-
-<div class="inner cover">
-  <h1 class="cover-heading">Cover your page.</h1>
-  <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-  <p class="lead">
-    <%= link_to 'About Me', about_me_path, class: "btn btn-lg btn-secondary" %>
-  </p>
+<div class="home-card-container">
+  <div class="card">
+    <div class="inner cover">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag "welcome.jpg", alt: "welcme image", width: 300, class: "profile-img" %>
+        </div>
+        <div class="col-md-8">
+        <h1 class="cover-heading">Welcome.</h1>
+        <p class="lead">I am a full stack web developer who just graduated from the Coding Dojo in Burbank, CA knowledgeable in Python, MEAN, and Ruby. My past experiences in business and marketing industries have helped me develop problem-solving skills, multi-tasking abilities, and attention to detail. 
+      Now, I am seeking an opportunity where I can use my skills to make a new project or handle existing project.</p>
+        <p class="lead">
+          <%= link_to 'About Me', about_me_path, class: "btn btn-lg btn-secondary" %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 

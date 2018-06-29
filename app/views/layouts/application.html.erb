@@ -19,15 +19,17 @@
             id: 'background',
             autoplay: true,
             loop: true,
-            muted: true
+            muted: true,
+            poster: 'home_bg.png'
   
           )
           %>
 
+
           <%= render "shared/application_nav" %>
           <%= alert %>
-        
           <%= yield %>
+          
           <%= render "shared/application_footer" %>
           <%= source_helper("application") %>
         </div>
