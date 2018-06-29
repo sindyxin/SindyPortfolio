@@ -1,2 +1,11 @@
-<h1></h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+
+<div class="col-sm-8 blog-main">
+  <h1>Topics List</h1>
+  <div>
+    <ul>
+    <% @topics.each do |topic| %>
+      <li><%= link_to topic.title, topic_path(topic) %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
