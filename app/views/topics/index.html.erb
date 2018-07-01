@@ -1,0 +1,15 @@
+
+<div class="col-sm-8 blog-main">
+  <h1>Topics List</h1>
+  <div>
+    <ul>
+    <% @topics.each do |topic| %>
+      <li><%= link_to topic.title, topic_path(topic) %></li>
+    <% end %>
+    </ul>
+      <p>
+        <%= link_to 'Back to Blogs', blogs_path, class: "btn btn-secondary" %>
+      </p>
+  </div>
+  
+</div>

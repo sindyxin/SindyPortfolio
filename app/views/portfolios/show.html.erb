@@ -1,24 +1,22 @@
 
 <div class="container portfolio-container">
   <div class="row">
-    <div class="col-md-7">
-      <%= image_tag @portfolio_item.main_image.to_s, width: "100%", class:"main-image" %>
-    </div>
     <div class="col-md-5">
-      <h2>   
-        <%= @portfolio_item.title %>
+      <%= image_tag @portfolio_item.main_image.to_s, width: "100%", class:"main-image" %>
+      <a href="<%= @portfolio_item.subtitle %>"> Go to project live site</a>
+    </div>
+    <div class="col-md-7">
+      <h2><%= @portfolio_item.title %>
       </h2>
-      <em>      
-        <%= @portfolio_item.subtitle %>
-      </em>
+
       <p>
         <%= @portfolio_item.body %>
       </p>
       <h2>Technologies include:</h2>
   
-      <% @portfolio_item.technologies.each do |technology_item| %>      
-        <h6>*<%= technology_item.name %>   </h6>      
-      <% end %>
+      <div class="row"><% @portfolio_item.technologies.each do |technology_item| %>     
+        <h6 class="ml-3">*<%= technology_item.name %>   </h6>      
+      <% end %></div>
     <% if logged_in?(:site_admin) %>
       <div class="col-md-12">
         <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id), class: "btn btn-warning btn-block" %>

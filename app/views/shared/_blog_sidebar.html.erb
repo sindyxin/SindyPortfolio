@@ -1,32 +1,41 @@
 <div class="col-sm-3 offset-sm-1 blog-sidebar">
   <div class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
-    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+    <p>
+      I will share my Life, Travel, Coding, Programming, Technology and so on informations in this blog and my other social media. Welcome to visit and leave comments.
+  
+    </p>
+
+  </div>
+  <div class="sidebar-module">
+    <h4>Topics</h4>
+    <ul class="list-unstyled social-link">
+      <% @sidebar_topics.each do |topic| %>
+        <li><%= link_to "#{topic.title}", topic_path(topic) %></li>
+      <% end %>
+    </ul>
+    <h4><%= link_to 'See all topics', topics_path, class: "btn btn-primary" %></h4>
   </div>
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ol class="list-unstyled">
-      <li><a href="#">March 2018</a></li>
-      <li><a href="#">February 2018</a></li>
-      <li><a href="#">January 2018</a></li>
-      <li><a href="#">December 2017</a></li>
-      <li><a href="#">November 2017</a></li>
-      <li><a href="#">October 2017</a></li>
-      <li><a href="#">September 2017</a></li>
-      <li><a href="#">August 2017</a></li>
-      <li><a href="#">July 2017</a></li>
-      <li><a href="#">June 2017</a></li>
-      <li><a href="#">May 2017</a></li>
-      <li><a href="#">April 2017</a></li>
-    </ol>
+    <ul class="list-unstyled">
+      <li><a href="/2018/12/blogs">December 2018</a></li>
+      <li><a href="/2018/11/blogs">November 2018</a></li>
+      <li><a href="/2018/10/blogs">October 2018</a></li>
+      <li><a href="/2018/09/blogs">September 2018</a></li>
+      <li><a href="/2018/08/blogs">August 2018</a></li>
+      <li><a href="/2018/07/blogs">July 2018</a></li>
+      <li><a href="/2018/06/blogs">June 2018</a></li>
+      <li><a href="/2018/05/blogs">May 2018</a></li>
+      <li><a href="/2018/04/blogs">April 2018</a></li>
+    </ul>
   </div>
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
-    <ol class="list-unstyled social-link">
-      <li><a href="#"><%= fa_icon "github" %> GitHub</a></li>
-      <li><a href="#"><%= fa_icon "linkedin" %> Linkedin</a></li>
-      <li><a href="#"><%= fa_icon "facebook" %> Facebook</a></li>
-      <li><a href="#"><%= fa_icon "instagram" %> Instagram</a></li>
-    </ol>
+    <ul class="list-unstyled social-link">
+      <li><%= fa_icon "github" %> <a href="https://github.com/sindyxin" class="ml-1"> GitHub</a></li>
+      <li><%= fa_icon "linkedin" %> <a href="https://www.linkedin.com/in/xin-li-3b823a93/" class="ml-1"> Linkedin</a></li>
+      <li><%= fa_icon "facebook" %> <a href="https://www.facebook.com/sindylixin" class="ml-2"> Facebook</a></li>
+    </ul>
   </div>
 </div><!-- /.blog-sidebar -->

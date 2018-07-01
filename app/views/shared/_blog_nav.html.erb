@@ -1,9 +1,16 @@
 <!-- Blog Nav -->
-<div class="blog-masthead">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark p-3 blog-nav">
+
   <div class="container">
-    <nav class="nav blog-nav">
+    <%= image_tag 'favicons/girl.png' %>
+    <%= link_to "Xin Li", root_path, class: "navbar-brand ml-2 mr-5" %>
+    <button class="navbar-toggler" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarNav"> 
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="conllapse navbar-collapse" id="navbarNav">
       <%= nav_helper "nav-link", "span" %>
       <%= login_helper("nav-link") %>
-    </nav>
+    </div>
   </div>
-</div>
+</nav>

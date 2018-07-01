@@ -1,21 +1,32 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topics_sidebar, except: [:destory, :update, :create, :toggle_status]#reason is we don't want to call this inside of action items that are not GET request
   layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
+  access all: [:show, :index, :paginate], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
   # GET /blogs
   # GET /blogs.json
+
   def index
-    @blogs = Blog.page(params[:page]).per(5).order(created_at: :desc)
-    #@blogs = Blog.all
+    if logged_in?(:site_admin)
+      @blogs = Blog.page(params[:page]).per(5).order(created_at: :desc)
+      #@blogs = Blog.all
+    else 
+      @blogs = Blog.published.page(params[:page]).per(5).order(created_at: :desc)
+    end
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
+
   end
 
   # GET /blogs/new
@@ -70,10 +81,15 @@ class BlogsController < ApplicationController
   def toggle_status
     if @blog.draft?
       @blog.published! 
+      @blog.update(created_at: Time.now)
     elsif @blog.published?
       @blog.draft! 
     end
-    redirect_to blogs_url, notice: "Post status has been changed."
+    redirect_to @blog, notice: "Post status has been changed."
+  end
+  def month
+    @blogs = Blog.page(params[:page]).per(5).where('extract(year  from created_at) = ?', params[:year]).where('extract(month  from created_at) = ?', params[:month]).order("created_at DESC")
+
   end
 
   private
@@ -84,6 +100,9 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :status)
+      params.require(:blog).permit(:title, :body, :status, :topic_id)
+    end
+    def set_topics_sidebar
+      @sidebar_topics = Topic.with_blogs.limit(5)
     end
 end

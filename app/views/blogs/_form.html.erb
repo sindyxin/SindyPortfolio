@@ -11,8 +11,26 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label "Body" %>
     <%= f.text_area :body, class: "form-control", rows: 15 %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Topic"%>
+    <%= f.collection_select(:topic_id, Topic.all, :id, :title,
+                              {
+                                selected: blog.topic_id,
+                                include_blank: true
+
+                              },
+                              class: "form-control"
+                              )
+    %>
+
+  </div>
+  <div class="form-group">
+    <%= f.radio_button :status, 'draft' %>
+    <%= f.label :status, 'Draft' %>
+    <%= f.radio_button :status, 'published' %>
+    <%= f.label :status, 'Published' %>
   </div>
   <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
