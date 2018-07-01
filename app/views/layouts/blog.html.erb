@@ -15,20 +15,23 @@
   <body>
    <!-- Blog Nav -->
     <%= render "shared/blog_nav" %>
-    <!-- Blog Header -->
-    <%= render "shared/blog_header" %>
 
-    <!-- Blog Container and row element -->
-    <div class="container">
-      <div class="row">
-        <%= yield %>
-        <!-- Blog Sidebar -->
-        <%= render "shared/blog_sidebar" %>
+
+      <!-- Blog Header -->
+    <%= render "shared/blog_header" %>
+    <div class="blog-body">
+      <!-- Blog Container and row element -->
+      <div class="container" id="blog-container">
+        <div class="row">
+          <%= yield %>
+          <!-- Blog Sidebar -->
+          <%= render "shared/blog_sidebar" %>
+        </div>
       </div>
+      <!-- Blog Footer -->
+      <%= render "shared/blog_footer" %>
+      <%= alert %>
+      <%= source_helper("blog") %>
     </div>
-    <!-- Blog Footer -->
-    <%= render "shared/blog_footer" %>
-    <%= alert %>
-    <%= source_helper("blog") %>
   </body>
 </html>

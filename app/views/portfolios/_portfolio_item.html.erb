@@ -2,9 +2,14 @@
 <div class="col-md-4">
   <div class="card" data-id="<%= portfolio_item.id %>">
     <%= image_tag portfolio_item.thumb_image.to_s, class: "thumb-image", width: "100%" %>
-    <p class="card-text">
+    <h1 class="card-text">
       <span><%= link_to portfolio_item.title, show_portfolio_path(portfolio_item) %></span> 
-    </p>
-    <p><%= portfolio_item.subtitle %></p>
+    </h1>
+    <h2 class="card-text">Technologies:</h2>
+    <div class="card-text row"><% portfolio_item.technologies.each do |technology_item| %>     
+      <h3 class="card-text ml-3">*<%= technology_item.name %>   </h3>      
+    <% end %></div>
+
+    <p><%= link_to "Detail", show_portfolio_path(portfolio_item), class:"btn btn-secondary" %></p>
   </div>
 </div>

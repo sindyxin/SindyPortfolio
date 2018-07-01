@@ -12,8 +12,8 @@ body {
 }
 
 .jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   margin-bottom: 0;
   background-color: #fff;
 }
@@ -40,6 +40,7 @@ body {
 .card {
   float: left;
   width: 100%;
+  height:100%;
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
@@ -50,7 +51,7 @@ body {
 }
 
 .card-text {
-  font-size: 85%;
+  font-size: 100%;
 }
 
 footer {
@@ -72,13 +73,13 @@ footer p {
   padding-top: 30px;
 }
 
-// .thumb-image{
+.thumb-image{
+
+  height: 222px;
+}
+// .main-image{
 //   width:350px;
 //   height: 250px;
-// }
-// .main-image{
-//   width:600px;
-//   height: 400px;
 // }
 
 #navbarHeader{

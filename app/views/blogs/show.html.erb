@@ -1,20 +1,22 @@
 
 <div class="col-sm-8 blog-main">
-  <h2>
-    <%= @blog.title %>
-  </h2>
-  <h5 class="text-muted">( Topic:  <%= link_to @blog.topic.title, topic_path(@blog.topic) %>)</h5>
-  <nav class="breadcrumb">
-    <% if logged_in?(:site_admin) %>
-    <%= link_to fa_icon("edit"), edit_blog_path(@blog), class: "breadcrumb-item" %>
-    <%= link_to fa_icon("trash"), @blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "breadcrumb-item" %>
-    <% end %>
-    <%= link_to 'Back', blogs_path, class: "breadcrumb-item" %>
-  </nav>
-  <p>
-    <%= markdown @blog.body %>
-  </p>
-
+  <div class="blog-show">
+    <h2>
+      <%= @blog.title %>
+    </h2>
+    <h5 class="text-muted">( Topic:  <%= link_to @blog.topic.title, topic_path(@blog.topic) %>)</h5>
+    <nav class="breadcrumb">
+      <% if logged_in?(:site_admin) %>
+      <%= link_to @blog.status.capitalize, toggle_status_blog_path(@blog), class: "breadcrumb-item" %> 
+      <%= link_to fa_icon("edit"), edit_blog_path(@blog), class: "breadcrumb-item" %>
+      <%= link_to fa_icon("trash"), @blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "breadcrumb-item" %>
+      <% end %>
+      <%= link_to 'Back', blogs_path, class: "breadcrumb-item" %>
+    </nav>
+    <p>
+      <%= markdown @blog.body %>
+    </p>
+  </div>
 
   <!-- Start of comment form -->
   <%= render 'comments/comment_form' %>

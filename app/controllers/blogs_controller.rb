@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   before_action :set_topics_sidebar, except: [:destory, :update, :create, :toggle_status]#reason is we don't want to call this inside of action items that are not GET request
   layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
+  access all: [:show, :index, :paginate], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
   # GET /blogs
   # GET /blogs.json
 
@@ -85,7 +85,11 @@ class BlogsController < ApplicationController
     elsif @blog.published?
       @blog.draft! 
     end
-    redirect_to blogs_url, notice: "Post status has been changed."
+    redirect_to @blog, notice: "Post status has been changed."
+  end
+  def month
+    @blogs = Blog.page(params[:page]).per(5).where('extract(year  from created_at) = ?', params[:year]).where('extract(month  from created_at) = ?', params[:month]).order("created_at DESC")
+
   end
 
   private
@@ -99,6 +103,6 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:title, :body, :status, :topic_id)
     end
     def set_topics_sidebar
-      @sidebar_topics = Topic.with_blogs
+      @sidebar_topics = Topic.with_blogs.limit(5)
     end
 end

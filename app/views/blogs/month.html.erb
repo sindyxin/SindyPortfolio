@@ -1,0 +1,17 @@
+ <% if @blogs.count > 0 %>
+
+  <div class="col-sm-8 blog-main">
+    <%= paginate @blogs %>
+    <%= render @blogs %>
+    <%= paginate @blogs %>
+
+  </div><!-- /.blog-main -->
+<% else %>
+  <div class="col-sm-8 blog-main">
+    <h4> This month no blog posts!</h4>
+    <p>
+      <%= link_to 'Back to Blogs', blogs_path, class: "btn btn-secondary" %>
+    </p>
+  </div>
+
+<% end %>
