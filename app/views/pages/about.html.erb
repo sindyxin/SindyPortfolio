@@ -37,7 +37,7 @@
             Experience
           </button>   
           <button
-            class="btn btn-info"
+            class="btn btn-secondary"
             type="button"
             data-toggle="collapse"
             data-target="#skill"
@@ -45,7 +45,7 @@
             aria-controler="skill"
           >
             Skills
-          </button>          
+          </button>        
         </h3>
       </div>
     </div>
@@ -72,7 +72,21 @@
       </div>
       <div class="collapse" id="skill">
         <div class="card card-block bg-light">
-          <%= image_tag "experience.png", alt: "experience image", class: "experience-img" %>   
+          <% @skills.each do |skill| %>
+          <div class="row">
+            <div class="col-md-4">
+              <h4><%= skill.title %></h4>              
+            </div>
+            <div class="col-md-8">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                aria-valuenow="<%= skill.percent_utilized %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= skill.percent_utilized %>%">
+                  <%= skill.percent_utilized %>%
+                </div>
+              </div>
+            </div>
+          </div>  
+          <% end %>
         </div>
       </div>
     </p>

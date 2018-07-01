@@ -1,5 +1,5 @@
-<div class="card">
-  <h2>Sign up</h2>
+<div class="card" id="sign">
+  <h2><%= fa_icon "user-circle" %> Sign up</h2>
   <div class="card-block">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -21,7 +21,7 @@
         <%= f.label :password, class: "col-md-3 col-form-label" %>
         <div class="col-md-7">
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-          <small id="emailHelp" class="form-text text-muted">
+          <small id="emailHelp" class="form-text text-white">
             <% if @minimum_password_length %>
               <em><%= @minimum_password_length %> characters minimum</em>
             <% end %>
@@ -40,7 +40,7 @@
         <div class="col-md-2">
           <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
           <div class="auth-link login-style">
-            <%= render "devise/shared/links" %>
+            <%= render "devise/shared/links" %> 
           </div>
         </div>
 

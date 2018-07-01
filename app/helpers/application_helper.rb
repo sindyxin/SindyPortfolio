@@ -49,7 +49,7 @@ module ApplicationHelper
       },
       {
         url: tech_news_path,
-        title: "Tech News"
+        title: "Tech Tweets"
       }
 
     ]
