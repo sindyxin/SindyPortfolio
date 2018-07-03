@@ -1,0 +1,23 @@
+<%= form_for(skill) do |s| %>
+  <% if skill.errors.any? %>
+    <h3><%= pluralize(skill.errors.count, "errors") %> prohibited this skill from being saved:</h3>
+    <% skill.errors.full_messages.each do |error| %>
+      <%= alert_generator error %>
+    <% end %>
+  <% end %>
+  <div class="form-group row">
+    <%= s.label "Title"%>
+    <div class="col-md-7">
+      <%= s.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= s.label "Percent Utilized"%>
+    <div class="col-md-7">
+      <%= s.text_field :percent_utilized, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= s.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

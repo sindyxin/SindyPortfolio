@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
   get 'tech-news', to: 'pages#tech_news'
+
+  get 'new-skill', to: 'pages#new_skill'
+  post 'skills', to: 'pages#create_skill'
+  
   resources :blogs do
     member do
       get :toggle_status
