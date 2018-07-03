@@ -1,6 +1,6 @@
 
 <div class="container portfolio-container">
-  <%= image_tag @portfolio_item.main_image.to_s, width: "80%", class:"main-image" %>
+  <%= image_tag @portfolio_item.main_image.to_s, width: "100%", class:"main-image" %>
   <h6 class="mt-1"><a href="<%= @portfolio_item.subtitle %>"> Go to project live site</a></h6>
 
   <h2><%= @portfolio_item.title %>
@@ -16,7 +16,7 @@
   <% end %></div>
 <% if logged_in?(:site_admin) %>
   <div class="col-md-12">
-    <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id), width: "80%", class: "btn btn-warning btn-block mt-2" %>
+    <%= link_to 'Edit', edit_portfolio_path(@portfolio_item.id), class: "btn btn-warning btn-block mt-2" %>
   </div>
 <% end %>
 
