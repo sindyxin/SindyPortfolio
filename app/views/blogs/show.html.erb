@@ -14,7 +14,7 @@
       <%= link_to 'Back', blogs_path, class: "breadcrumb-item" %>
     </nav>
     <p>
-      <%= markdown(blog_parser blog.body) %>
+      <%= markdown(blog_parser @blog.body) %>
     </p>
   </div>
 
