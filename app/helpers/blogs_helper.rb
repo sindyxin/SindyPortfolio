@@ -30,5 +30,8 @@ module BlogsHelper
     markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
     markdown_to_html.render(text).html_safe
   end
+  def blog_parser blog
+    @blog_url = PointOutUrl::Renderer.text_parser blog
+  end
 
 end

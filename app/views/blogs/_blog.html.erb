@@ -11,7 +11,7 @@
   <% end %>
 
   <p>
-    <%= markdown blog.body %>
+    <%= markdown(blog_parser blog.body) %>
   </p>
 </div>
 
